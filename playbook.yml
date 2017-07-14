@@ -1,0 +1,7 @@
+---
+- hosts: all
+  remote_user: debian
+  sudo: yes
+  tasks:
+      - include: tasks/source.yml
+      - include: tasks/install.yml

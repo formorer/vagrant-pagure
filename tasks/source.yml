@@ -1,0 +1,22 @@
+- name: install build deps
+  apt:
+      name: "{{ item }}"
+      state: present
+  with_items:
+      - git
+      - vim
+      - libgit2-dev
+      - build-essential
+      - python-pip
+      - python-virtualenv
+      - python-cffi
+      - libgit2-dev
+      - python-pygit2
+      - build-essential
+      - python-dev
+      - libffi-dev
+      - libjpeg-dev
+- name: get pagure source
+  git:
+      repo: https://pagure.io/pagure.git
+      dest: /srv/pagure

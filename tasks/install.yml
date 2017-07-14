@@ -1,0 +1,14 @@
+- name: install deps
+  command: pip install -r requirements.txt
+  args:
+    chdir: /srv/pagure
+
+- name: build pagure
+  command: python setup.py build
+  args:
+    chdir: /srv/pagure
+
+- name: install pagure
+  command: python setup.py install
+  args:
+    chdir: /srv/pagure
