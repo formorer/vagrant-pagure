@@ -16,6 +16,7 @@
       - python-dev
       - libffi-dev
       - libjpeg-dev
+      - libapache2-mod-wsgi
 - name: get pagure source
   git:
       repo: https://pagure.io/pagure.git
