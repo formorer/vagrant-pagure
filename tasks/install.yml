@@ -7,8 +7,10 @@
   command: python setup.py build
   args:
     chdir: /srv/pagure
+  when: _pagure_source | changed
 
 - name: install pagure
   command: python setup.py install
   args:
     chdir: /srv/pagure
+  when: _pagure_source | changed

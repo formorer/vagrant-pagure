@@ -20,3 +20,4 @@
   git:
       repo: https://pagure.io/pagure.git
       dest: /srv/pagure
+  register: _pagure_source

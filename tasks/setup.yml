@@ -1,0 +1,22 @@
+- name: create pagure config dir
+  file:
+    path: /etc/pagure
+    state: directory
+
+- name: install pagure configuration
+  template:
+    src: {{ item }}.j2
+    dest: /etc/pagure/{{ item }}
+  with_items:
+    - pagure.cfg
+    - alembic.ini
+
+- name: create pagure folders
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - /srv/git
+    - /srv/docs
+    - /srv/requests
+    - /srv/remotes

@@ -2,6 +2,19 @@
 - hosts: all
   remote_user: debian
   sudo: yes
+  vars:
+      email_error: formorer@debian.org
+      domain: pagure.snow-crash.org
+      email_salt: changeme
+      git_home: /srv/git/
+      docs_home: /srv/docs/
+      requests_home: /srv/requests
+      remotes_home: /srv/remotes
+      tickets_home: /srv/tickets
+      flask_secret: changeme
+      database_url: sqlite:////var/tmp/pagure_dev.sqlite
+
   tasks:
       - include: tasks/source.yml
       - include: tasks/install.yml
+      - include: tasks/setup.yml
