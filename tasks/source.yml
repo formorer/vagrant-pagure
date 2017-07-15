@@ -17,6 +17,8 @@
       - libffi-dev
       - libjpeg-dev
       - libapache2-mod-wsgi
+      - apache2
+      - ssl-cert
 - name: get pagure source
   git:
       repo: https://pagure.io/pagure.git

@@ -31,3 +31,19 @@
     src: /srv/pagure/createdb.py
     dest: /usr/share/pagure/pagure_createdb.py
     remote_src: true
+
+- name: enable wsgi apache module
+  apache2_module:
+    state: present
+    name: wsgi
+
+- name: install apache config
+  copy:
+    src: /srv/pagure/files/pagure.wsgi
+    dest: /usr/share/pagure/pagure.wsgi
+    remote_src: true
+
+- name: install apache site
+  template:
+    src: pagure.conf.j2
+    dest: /etc/apache2/sites-available/pagure.conf

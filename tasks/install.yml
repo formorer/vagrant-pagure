@@ -14,3 +14,4 @@
   args:
     chdir: /srv/pagure
   when: _pagure_source | changed
+
