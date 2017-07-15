@@ -5,7 +5,7 @@
 
 - name: install pagure configuration
   template:
-    src: {{ item }}.j2
+    src: "{{ item }}.j2"
     dest: /etc/pagure/{{ item }}
   with_items:
     - pagure.cfg
@@ -20,3 +20,14 @@
     - /srv/docs
     - /srv/requests
     - /srv/remotes
+
+- name: create pagure dir
+  file:
+    path: /usr/share/pagure
+    state: directory
+
+- name: install createdb
+  copy:
+    src: /srv/pagure/createdb.py
+    dest: /usr/share/pagure/pagure_createdb.py
+    remote_src: true
